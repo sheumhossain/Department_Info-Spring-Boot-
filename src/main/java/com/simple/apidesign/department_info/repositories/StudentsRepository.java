@@ -1,4 +1,4 @@
-package repositories;
+package com.simple.apidesign.department_info.repositories;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

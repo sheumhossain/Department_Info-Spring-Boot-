@@ -11,11 +11,11 @@ public class Students {
 	public String name;
 	public String session;
 	public int age;
-	public int passion;
+	public String passion;
 	
 	public Students() {}
 	
-	public Students(ObjectId _id, String name, String session, int age, int passion) {
+	public Students(ObjectId _id, String name, String session, int age, String passion) {
 		this._id = _id;
 		this.name = name;
 		this.session = session;
@@ -55,11 +55,11 @@ public class Students {
 		this.age = age;
 	}
 
-	public int getPassion() {
+	public String getPassion() {
 		return passion;
 	}
 
-	public void setPassion(int passion) {
+	public void setPassion(String passion) {
 		this.passion = passion;
 	}
 

@@ -3,8 +3,7 @@ package com.simple.apidesign.department_info;
 import java.util.List;
 
 import com.simple.apidesign.department_info.model.Students;
-
-import repositories.StudentsRepository;
+import com.simple.apidesign.department_info.repositories.StudentsRepository;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,36 +28,36 @@ public class StudentsController {
   //Get
   
   @RequestMapping(value = "/", method = RequestMethod.GET)
-  public List<Students> getAllPets() {
+  public List<Students> getAllStudents() {
     return repository.findAll();
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public Students getPetById(@PathVariable("id") ObjectId id) {
+  public Students getStudentsById(@PathVariable("id") ObjectId id) {
     return repository.findBy_id(id);
   }
   
   //Put
   
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Students students) {
+  public void modifyStudentById(@PathVariable("id") ObjectId id, @Valid @RequestBody Students students) {
 	  students.set_id(id);
-    repository.save(students);
+      repository.save(students);
   }
   
   //post
   
   @RequestMapping(value = "/", method = RequestMethod.POST)
-  public Students createPet(@Valid @RequestBody Students students) {
+  public Students createStudents(@Valid @RequestBody Students students) {
 	  students.set_id(ObjectId.get());
-    repository.save(students);
-    return students;
+	  repository.save(students);
+	  return students;
   }
   
   //delete
   
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-  public void deletePet(@PathVariable ObjectId id) {
+  public void deleteStudents(@PathVariable ObjectId id) {
     repository.delete(repository.findBy_id(id));
   }
   
