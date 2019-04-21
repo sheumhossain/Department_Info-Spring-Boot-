@@ -37,9 +37,10 @@ public class StudentsController {
   //Put
   
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public void modifyStudentById(@PathVariable("id") ObjectId id, @Valid @RequestBody Students students) {
+  public Students modifyStudentById(@PathVariable("id") ObjectId id, @Valid @RequestBody Students students) {
 	  students.set_id(id);
       repository.save(students);
+      return repository.findBy_id(id);
   }
   
   //post
